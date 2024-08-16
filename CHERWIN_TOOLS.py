@@ -497,27 +497,27 @@ def get_ip():
     
 def main(APP_NAME, local_script_name, ENV_NAME, local_version, need_invite=False):
     global APP_INFO, TIPS, TIPS_HTML
-    # git_url = f'https://gitee.com/cherwin/CHERWIN_SCRIPTS/raw/main/{local_script_name}'
-    # if CHECK():
-    #     APP_INFO = CHERWIN_SCRIPT_CONFIG.get("APP_CONFIG", {}).get(ENV_NAME, {})
-    #     # print(APP_INFO)
-    #     server_version = APP_INFO.get('NEW_VERSION', '')
-    #     if CHECK_UPDATE_NEW(local_version, server_version, git_url, local_script_name, APP_NAME=APP_NAME):
-    #         print('更新成功，请重新运行脚本！')
-    #
-    #     if not APP_INFO.get('ENABLE', False) and not IS_DEV:
-    #         print('当前脚本未开放')
-    #         exit()
-    #     TIPS = APP_INFO.get('NTC', '') if APP_INFO.get('NTC', '') else CHERWIN_SCRIPT_CONFIG.get('GLOBAL_NTC', '')
-    #     TIPS_HTML = APP_INFO.get('NTC', '') if APP_INFO.get('NTC', '') else CHERWIN_SCRIPT_CONFIG.get('GLOBAL_NTC_HTML','')
-    #     ENV = os.environ.get(ENV_NAME)
-    #     if need_invite:
-    #         AuthorCode = get_AuthorInviteCode(f'https://yhsh.ziyuand.cn/{ENV_NAME}_INVITE_CODE.json')
-    #     else:
-    #         AuthorCode = ''
-    #     return ENV, APP_INFO, TIPS, TIPS_HTML, AuthorCode
-    # else:
-    #     exit()
+    git_url = f'https://gitee.com/cherwin/CHERWIN_SCRIPTS/raw/main/{local_script_name}'
+    if True:
+        APP_INFO = CHERWIN_SCRIPT_CONFIG.get("APP_CONFIG", {}).get(ENV_NAME, {})
+        # print(APP_INFO)
+        server_version = APP_INFO.get('NEW_VERSION', '')
+        if CHECK_UPDATE_NEW(local_version, server_version, git_url, local_script_name, APP_NAME=APP_NAME):
+            print('更新成功，请重新运行脚本！')
+
+        # if not APP_INFO.get('ENABLE', False) and not IS_DEV:
+        #     print('当前脚本未开放')
+        #     exit()
+        TIPS = APP_INFO.get('NTC', '') if APP_INFO.get('NTC', '') else CHERWIN_SCRIPT_CONFIG.get('GLOBAL_NTC', '')
+        TIPS_HTML = APP_INFO.get('NTC', '') if APP_INFO.get('NTC', '') else CHERWIN_SCRIPT_CONFIG.get('GLOBAL_NTC_HTML','')
+        ENV = os.environ.get(ENV_NAME)
+        if need_invite:
+            AuthorCode = get_AuthorInviteCode(f'https://yhsh.ziyuand.cn/{ENV_NAME}_INVITE_CODE.json')
+        else:
+            AuthorCode = ''
+        return ENV, APP_INFO, TIPS, TIPS_HTML, AuthorCode
+    else:
+        exit()
 
 
 if __name__ == '__main__':
