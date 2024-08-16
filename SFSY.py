@@ -1695,7 +1695,7 @@ def import_Tools():
 
 if __name__ == '__main__':
     APP_NAME = '顺丰速运'
-    ENV_NAME = 'SFSY'
+    ENV_NAME = 'sfsyUrl'
     CK_NAME = 'url'
     print(f'''
 ✨✨✨ {APP_NAME}脚本✨✨✨
@@ -1742,7 +1742,7 @@ export SCRIPT_UPDATE = 'False' 关闭脚本自动更新，默认开启
     if not token:
         print(f"未填写{ENV_NAME}变量\n青龙可在环境变量设置 {ENV_NAME} 或者在本脚本文件上方将{CK_NAME}填入token =''")
         exit()
-    tokens = token.split('#')
+    tokens = token.split('@@')
     # print(tokens)
     if len(tokens) > 0:
         print(f"\n>>>>>>>>>>共获取到{len(tokens)}个账号<<<<<<<<<<")
