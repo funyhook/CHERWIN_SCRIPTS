@@ -1695,7 +1695,7 @@ def import_Tools():
 
 if __name__ == '__main__':
     APP_NAME = '顺丰速运'
-    ENV_NAME = 'sfsyUrl'
+    ENV_NAME = 'SFSY'
     CK_NAME = 'url'
     print(f'''
 ✨✨✨ {APP_NAME}脚本✨✨✨

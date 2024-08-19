@@ -474,8 +474,9 @@ def KPL_SIGN(url, params):
     }
     return sign_header
 
+
 def get_ip():
-    response = requests.get('https://cdn.jsdelivr.net/gh/parserpp/ip_ports/proxyinfo.json',verify=False)
+    response = requests.get('https://cdn.jsdelivr.net/gh/parserpp/ip_ports/proxyinfo.json', verify=False)
     # 使用正则表达式提取 IP 地址和端口号
     data = response.text
     lines = data.strip().split('\n')
@@ -494,7 +495,8 @@ def get_ip():
     else:
         print("没匹配到CN的ip")
         return None
-    
+
+
 def main(APP_NAME, local_script_name, ENV_NAME, local_version, need_invite=False):
     global APP_INFO, TIPS, TIPS_HTML
     git_url = f'https://gitee.com/cherwin/CHERWIN_SCRIPTS/raw/main/{local_script_name}'
@@ -505,11 +507,12 @@ def main(APP_NAME, local_script_name, ENV_NAME, local_version, need_invite=False
         if CHECK_UPDATE_NEW(local_version, server_version, git_url, local_script_name, APP_NAME=APP_NAME):
             print('更新成功，请重新运行脚本！')
 
-        # if not APP_INFO.get('ENABLE', False) and not IS_DEV:
-        #     print('当前脚本未开放')
-        #     exit()
+        if not APP_INFO.get('ENABLE', False) and not IS_DEV:
+            print('当前脚本未开放')
+            exit()
         TIPS = APP_INFO.get('NTC', '') if APP_INFO.get('NTC', '') else CHERWIN_SCRIPT_CONFIG.get('GLOBAL_NTC', '')
-        TIPS_HTML = APP_INFO.get('NTC', '') if APP_INFO.get('NTC', '') else CHERWIN_SCRIPT_CONFIG.get('GLOBAL_NTC_HTML','')
+        TIPS_HTML = APP_INFO.get('NTC', '') if APP_INFO.get('NTC', '') else CHERWIN_SCRIPT_CONFIG.get('GLOBAL_NTC_HTML',
+                                                                                                      '')
         ENV = os.environ.get(ENV_NAME)
         if need_invite:
             AuthorCode = get_AuthorInviteCode(f'https://yhsh.ziyuand.cn/{ENV_NAME}_INVITE_CODE.json')
